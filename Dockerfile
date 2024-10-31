@@ -37,4 +37,4 @@ RUN npx playwright install-deps
 COPY . .
 
 # Definir o comando padrão
-CMD ["robot", "-d", "/app/logs", "tests"]
+CMD ["robot", "-d", "--listener", "RetryFailed", "/app/logs", "tests"]
