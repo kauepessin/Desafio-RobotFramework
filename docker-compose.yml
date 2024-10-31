@@ -1,0 +1,22 @@
+version: '3'
+services:
+  robot-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    volumes:
+      - ./tests:/app/tests
+
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8081:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false  # Desativa o assistente de configuração
+
+volumes:
+  jenkins_home:
