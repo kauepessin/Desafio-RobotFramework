@@ -10,11 +10,13 @@ Desafio tecnico utilizando Robot Framework
 
 ## Como executar
 
-1. Clonar o repositório, instalar as dependências
+1. Clonar o repositório
+
+2. Instalar o docker
+
+3. Executar o comando para subir o container que possui a imagem com os testes e a imagem do Jenkins
 ```
-pip install -r requirements.text
+docker compose up --build
 ```
 
-2. Executar testes os testes com a função de retry
-```
-robot --listener RetryFailed -d ./logs tests/
+4. o Docker automaticamente irá instalar as dependencias na maquina do container e rodar os testes
